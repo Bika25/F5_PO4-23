@@ -1,0 +1,423 @@
+:root {
+  --primary: #370617;
+  --dark: #2a0b12;
+  --light: #ffffff;
+  --gray: #f2f2f2;
+
+  --font-title: 'Playfair Display', serif;
+  --font-main: 'Inter', sans-serif;
+  --font-decorative: 'Italiana', serif;
+
+}
+z
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  color: #111;
+  background: var(--light);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+
+.navbar {
+    background: #4a0015;
+    color: white;
+    padding: 15px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 14px;
+}
+
+.login-btn {
+    background: white;
+    color: black;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* Hero */
+
+
+.hero {
+  padding-top: 80px; /* ВАЖНО */
+  background: linear-gradient(180deg, #4b0f1e 0%, #2a0b12 100%);
+}
+
+.hero {
+  background: linear-gradient(180deg, var(--primary), var(--dark));
+  color: #fff;
+  padding: 80px 0;
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.hero h1 {
+  font-family: var(--font-title);
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 16px;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+/* About */
+.about {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.section-label {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 30px;
+  border-radius: 40px;
+  margin-bottom: 30px;
+}
+
+.about__text {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 16px;
+}
+
+/* Courses */
+.courses {
+  background: var(--gray);
+  padding: 80px 0;
+}
+
+.courses__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.course-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
+
+.course-card h3 {
+  margin-bottom: 10px;
+}
+
+.course-card p {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.price {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.course-card a {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* Features */
+.features {
+  padding: 80px 0;
+}
+
+.features__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.feature {
+  background: #3a3a3a;
+  color: #fff;
+  padding: 40px;
+  border-radius: 12px;
+}
+
+.get-know {
+  padding: 120px 0;
+  text-align: center;
+}
+
+.get-know__title {
+  font-family: 'Italiana', serif;
+  font-size: 42px;
+  margin-bottom: 40px;
+}
+
+.get-know__title span {
+  display: block;
+  font-size: 36px;
+  margin-top: 10px;
+}
+
+.get-know__media {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto 120px; /* место под перекрытие */
+}
+
+.get-know__image {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto 60px;
+}
+
+
+.get-know__media img {
+  width: 100%;
+  border-radius: 20px;
+  display: block;
+}
+
+
+/* 🔴 Контейнер поверх фото */
+.get-know__overlay {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  background: rgba(255, 230, 230, 0.95);
+  border-radius: 20px;
+  padding: 30px 40px;
+  display: flex;
+  gap: 40px;
+}
+
+/* Левая часть */
+.overlay-left h4 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.overlay-buttons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn--primary {
+  background: #7b1121;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.link {
+  color: #7b1121;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* Правая часть */
+.overlay-right ul {
+  padding-left: 18px;
+}
+
+.overlay-right li {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Текст под фото */
+.get-know__text {
+  margin-top: 80px;
+  font-size: 16px;
+}
+
+/* Нижние карточки */
+.features-mini {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.feature-card {
+  background: #5b0f1b;
+  color: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.feature-card h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.feature-card p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Адаптив */
+@media (max-width: 900px) {
+  .get-know__overlay {
+    flex-direction: column;
+  }
+
+  .features-mini {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* FOOTER */
+.footer {
+    background: #000;
+    color: #fff;
+    padding: 40px 80px;
+}
+
+.footer-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: normal;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.footer-left {
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 400px;
+}
+
+/* FORM */
+.footer-form {
+    background: #f1f1f1;
+    color: #000;
+    padding: 20px;
+    border-radius: 8px;
+    width: 320px;
+}
+
+.footer-form h4 {
+    margin-bottom: 5px;
+}
+
+.footer-form p {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.footer-form input,
+.footer-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #ddd;
+}
+
+.footer-form textarea {
+    height: 80px;
+    resize: none;
+}
+
+.footer-form button {
+    width: 100%;
+    padding: 8px;
+    background: #cfcfcf;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.footer-copy {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 12px;
+    color: #aaa;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    width: 32px;   
+    height: 32px;
+    object-fit: contain;
+}
+
+.modules {
+    margin-top: 20px;
+}
+
+.module {
+    margin-bottom: 20px;
+}
+
+.module h4 {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.module p {
+    margin-left: 15px;
+    color: #333;
+}
+
+

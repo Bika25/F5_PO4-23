@@ -1,0 +1,222 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+.navbar {
+    background: #4a0015;
+    color: white;
+    padding: 15px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 14px;
+}
+
+.login-btn {
+    background: white;
+    color: black;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+
+.page-title {
+    font-family: 'Georgia', serif;
+    text-align: center;
+    font-size: 44px;
+    margin: 60px 0;
+    font-weight: normal;
+}
+
+
+.about-section {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 80px;
+}
+
+.about-logo-card {
+    background: #f4f4f4;
+    padding: 40px;
+    border-radius: 40px;
+    text-align: center;
+    width: 320px;
+}
+
+.flag-box {
+    width: 70px;
+    height: 50px;
+    margin: 0 auto 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.flag-black { background: #000; height: 33%; }
+.flag-red { background: #ff0000; height: 33%; }
+.flag-gold { background: #ffcc00; height: 34%; }
+
+.about-content h3 { font-size: 18px; margin-bottom: 15px; }
+.about-content p { font-size: 15px; line-height: 1.6; color: #333; }
+
+
+.insta-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+.phone-mockup {
+    width: 310px;
+    background: #fff;
+    border: 10px solid #222;
+    border-radius: 35px;
+    padding: 15px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+
+.insta-header, .insta-user-bar {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.insta-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    text-align: center;
+}
+
+.insta-avatar { width: 60px; height: 60px; background: #eee; border-radius: 50%; }
+.insta-bio { font-size: 11px; margin: 15px 0; }
+
+.insta-btns { display: flex; gap: 8px; margin-bottom: 15px; }
+.insta-btns button {
+    flex: 1;
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 11px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-blue { background: #0095f6; color: white; border: none !important; }
+.btn-blue:hover { background: #1877f2; }
+.btn-blue.followed { background: #efefef !important; color: #000 !important; }
+
+.btn-grey:hover { background: #f2f2f2; }
+
+.insta-highlights { display: flex; gap: 10px; margin-bottom: 15px; text-align: center; font-size: 9px; }
+.h-circle { width: 45px; height: 45px; border-radius: 50%; background: #f0f0f0; border: 1px solid #ddd; margin-bottom: 5px; display: flex; align-items: center; justify-content: center; font-size: 20px; cursor: pointer; }
+.c1 { background: #310811; } .c2 { background: #6b0f1a; } .c3 { background: #9c1a2b; }
+
+.insta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.grid-box { aspect-ratio: 1/1; background: #eee; transition: opacity 0.2s; cursor: pointer; }
+.grid-box:hover { opacity: 0.8; }
+
+/* Футер */
+.footer {
+    background: #000;
+    color: #fff;
+    padding: 70px 0 30px;
+}
+
+.footer-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-title { font-size: 30px; margin-bottom: 30px; font-family: 'Georgia', serif; }
+.info-group { margin-bottom: 20px; font-size: 12px; line-height: 1.5; }
+.info-label { color: #777; display: block; margin-bottom: 4px; }
+.footer-bottom-row { display: flex; gap: 50px; }
+
+
+.contact-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 420px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.contact-card p { color: #000; font-size: 12px; font-weight: bold; text-align: center; margin-bottom: 20px; }
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    background: #ededed;
+    border: 2px solid transparent;
+    padding: 12px 20px;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    font-size: 11px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    background: #fff;
+    border-color: #310811;
+}
+
+.contact-form textarea { height: 80px; border-radius: 15px; resize: none; }
+
+.send-btn {
+    background: #310811;
+    color: white;
+    border: none;
+    padding: 10px 35px;
+    border-radius: 20px;
+    display: block;
+    margin: 10px auto 0;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.send-btn:hover {
+    background: #5a0f1e;
+    transform: translateY(-2px);
+}
+
+.send-btn:active {
+    transform: translateY(0);
+}
+
+.copy {
+    text-align: center;
+    font-size: 10px;
+    color: #444;
+    margin-top: 50px;
+    border-top: 1px solid #1a1a1a;
+    padding-top: 20px;
+}

@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment by Card</title>
+    <link rel="stylesheet" href="css/editprofile4.css">
+
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">
+    <img src="img/logo.png" alt="Logo" class="logo-img">
+    <span>HalloDensch</span>
+</div>
+    <nav>
+    <a href="homepage.html">Homepage</a>
+    <a href="catalog.html">Catalog</a>
+    <a href="aboutus.html">About Us</a>
+    <a href="coursepage.html">Course Page</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<main class="container">
+
+    <section class="profile">
+        <div class="avatar"></div>
+        <h2>Name</h2>
+        <p>@user32498</p>
+        <button class="btn-secondary">Edit profile</button>
+    </section>
+
+    <section class="payment-card">
+        <h3>Payment by Card</h3>
+
+        <div class="payment-content">
+
+
+            <div class="illustration">
+               
+                <img src="{% static 'main/images/payment.png' %}" alt="Payment illustration">
+
+            </div>
+
+
+            <form class="payment-form">
+                <input type="email" placeholder="Email for receipt">
+                <input type="text" placeholder="Card Number">
+
+                <div class="row">
+                    <input type="text" placeholder="MM/YY">
+                    <input type="text" placeholder="CVV">
+                </div>
+
+                <button class="btn-primary">Pay</button>
+            </form>
+
+        </div>
+    </section>
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log In</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+    <!-- Background circles -->
+    <div class="circle top-left"></div>
+    <div class="circle bottom-right"></div>
+    
+<header class="navbar">
+    <div class="logo">
+    <img src="img/logo.png" alt="Logo" class="logo-img">
+    <span>HalloDensch</span>
+</div>
+    <nav>
+    <a href="homepage.html">Homepage</a>
+    <a href="catalog.html">Catalog</a>
+    <a href="aboutus.html">About Us</a>
+    <a href="coursepage.html">Course Page</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+
+    <!-- Login Form -->
+    <main class="container">
+        <div class="login-box">
+            <h1>Log In</h1>
+            <p>
+                Enter your details to log in to your Course account.<br>
+                In case you cannot log in, please contact our HelloDensch Center
+            </p>
+
+            <div class="field">
+                <label>Mobile Phone Number</label>
+                <div class="input-group">
+                    <span>+994</span>
+                    <input type="text" placeholder="Mobile Phone Number">
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Password</label>
+                <div class="input-group password">
+                    <input type="password" placeholder="Password">
+                </div>
+            </div>
+
+            <button class="btn btn-login">Log In</button>
+            <button class="btn btn-register">Register</button>
+
+            <div class="small-text">Still Not have an Account?</div>
+        </div>
+    </main>
+
+</body>
+</html>
