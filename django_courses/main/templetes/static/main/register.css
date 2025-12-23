@@ -1,0 +1,162 @@
+:root {
+    --primary: #4b0f1f;
+    --secondary: #6a1b2c;
+    --border: #cfcfcf;
+    --text: #333;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #fff;
+    overflow: hidden;
+}
+
+/* Background circles */
+.circle {
+    position: absolute;
+    width: 650px;
+    height: 650px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #6a1b2c, #3b0a17);
+    filter: blur(25px);
+}
+
+.circle.top-left {
+    top: -300px;
+    left: -300px;
+}
+
+.circle.bottom-right {
+    bottom: -300px;
+    right: -300px;
+}
+
+.navbar {
+    background: #4a0015;
+    color: white;
+    padding: 15px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 14px;
+}
+
+.login-btn {
+    background: white;
+    color: black;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* Layout */
+.container {
+    position: relative;
+    z-index: 1;
+    min-height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Register box */
+.register-box {
+    max-width: 720px;
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+}
+
+.register-box h1 {
+    margin-bottom: 8px;
+}
+
+.register-box p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Form grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 24px;
+    margin-bottom: 20px;
+}
+
+.form-grid input,
+.form-grid select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Password fields */
+.password-field {
+    position: relative;
+}
+
+.password-field span {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #666;
+}
+
+/* Checkbox */
+.checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: #555;
+    margin: 20px 0 30px;
+    text-align: left;
+}
+
+.checkbox input {
+    accent-color: var(--primary);
+    margin-top: 2px;
+}
+
+/* Button */
+.btn-register {
+    background: linear-gradient(90deg, #2b0610, #5a1223);
+    color: #fff;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+/* Login link */
+.login-link {
+    margin-top: 14px;
+    font-size: 14px;
+    color: #777;
+}
+
+.login-link a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+}

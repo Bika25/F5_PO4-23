@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <<link rel="stylesheet" href="{% static 'main/register.css' %}">
+</head>
+<body>
+
+    <!-- Background shapes -->
+    <div class="circle top-left"></div>
+    <div class="circle bottom-right"></div>
+
+    <header class="navbar">
+    <div class="logo">
+    <img src="{% static 'main/images/logo.png' %}" alt="Logo" class="logo-img">
+    <span>HalloDensch</span>
+</div>
+<nav>
+    <a href="{% url 'home' %}">Homepage</a>
+    <a href="{% url 'catalog' %}">Catalog</a>
+    <a href="{% url 'about' %}">About Us</a>
+    <a href="{% url 'course' %}">Course Page</a>
+    <a href="#">Contact</a>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'profile' %}" class="login-btn">Profile</a>
+    {% else %}
+        <a href="{% url 'login' %}" class="login-btn">Log in</a>
+    {% endif %}
+</nav>
+</header>
+    <!-- Register -->
+    <main class="container">
+        <div class="register-box">
+            <h1>Register</h1>
+            <p>
+                Enter your details to register to your Course account.<br>
+                In case you cannot register, please contact our HelloDensch Center
+            </p>
+
+            <form class="form-grid">
+                <input type="text" placeholder="First Name">
+                <input type="text" placeholder="SurName">
+
+                <input type="date" placeholder="Date of Birth">
+                <select>
+                    <option selected disabled>Nationality/Region</option>
+                    <option>Azerbaijan</option>
+                    <option>Turkey</option>
+                    <option>Germany</option>
+                </select>
+
+                <input type="email" placeholder="Email">
+                <input type="tel" placeholder="Mobile Phone">
+
+                <div class="password-field">
+                    <input type="password" placeholder="Password">
+                    <span>👁</span>
+                </div>
+
+                <div class="password-field">
+                    <input type="password" placeholder="Confirm Password">
+                    <span>👁</span>
+                </div>
+            </form>
+
+            <label class="checkbox">
+                <input type="checkbox">
+                I accept the Privacy Notice and Nomad Club Programme Terms and Conditions.
+            </label>
+
+            <button class="btn-register">Register</button>
+
+            <div class="login-link">
+                Already have an Account?
+                <a href="#">Log In</a>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,190 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Course Page</title>
+  <link rel="stylesheet" href="{% static 'main/coursepage.css' %}">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">
+    <img src="{% static 'main/images/logo.png' %}" alt="Logo" class="logo-img">
+    <span>HalloDensch</span>
+</div>
+    <<nav>
+    <a href="{% url 'home' %}">Homepage</a>
+    <a href="{% url 'catalog' %}">Catalog</a>
+    <a href="{% url 'about' %}">About Us</a>
+    <a href="{% url 'course' %}">Course Page</a>
+    <a href="#">Contact</a>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'profile' %}" class="login-btn">Profile</a>
+    {% else %}
+        <a href="{% url 'login' %}" class="login-btn">Log in</a>
+    {% endif %}
+</nav>
+</header>
+
+<section class="page-title">
+  <h1>Course Page</h1>
+  <span class="filter">Filter ⚙</span>
+</section>
+
+<section class="card">
+  <h2>Course Overview</h2>
+  <p>
+    This course is designed to help you build strong German language skills step by step.
+    You will learn essential vocabulary, grammar structures, and practical communication skills needed for everyday situations.
+  </p>
+
+  <h3>What you will learn</h3>
+  <ul>
+    <li>Introductions and basic conversations</li>
+    <li>German alphabet and pronunciation</li>
+    <li>Grammar basics (articles, cases, verbs)</li>
+    <li>Building simple sentences</li>
+    <li>Daily-life vocabulary</li>
+  </ul>
+
+  <h3>Who is this course for?</h3>
+  <ul>
+    <li>Complete beginners</li>
+    <li>Students planning to study in Germany</li>
+    <li>Anyone interested in learning German from scratch</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>Syllabus</h2>
+
+  <p><strong>Week 1 – Basics</strong><br>
+    Alphabet, pronunciation, greetings, numbers.</p>
+
+  <p><strong>Week 2 – Grammar Essentials</strong><br>
+    Articles, verb conjugation, sentence structure.</p>
+
+  <p><strong>Week 3 – Daily Vocabulary</strong><br>
+    Food, shopping, hobbies, family.</p>
+
+  <p><strong>Week 4 – Dialogues</strong><br>
+    Introducing yourself, simple conversations.</p>
+
+  <p><strong>Week 5 – Practice</strong><br>
+    Listening tasks, real-life exercises.</p>
+
+  <p><strong>Week 6 – Final Test</strong><br>
+    Speaking & writing tasks, certificate.</p>
+</section>
+
+<section class="card center">
+  <h2>What’s Included</h2>
+  <ul class="no-dots">
+    <li>20+ video lessons</li>
+    <li>Homework assignments</li>
+    <li>Vocabulary lists (PDF)</li>
+    <li>Speaking practice</li>
+    <li>Certificate of completion</li>
+  </ul>
+  <button class="join-btn">Join Now</button>
+</section>
+
+<section class="price">
+  <div class="price-left">
+    <h2>All Courses cost</h2>
+
+    <div class="discount">
+      The discount is valid for 1 day 13:38:33
+    </div>
+
+    <p class="old">75 000 tg / mon</p>
+    <p class="new">37 500 <span>tg / mon</span></p>
+
+    <p>In installments for 18 months</p>
+    <p>Speak with native speakers</p>
+
+    <div class="sale">-50%</div>
+  </div>
+
+  <div class="price-right">
+    <p>Start course: 5th nov</p>
+    <p>Left: 8 spots</p>
+    <div class="level">Intermediate level</div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="review">
+    <h3>The A1 Beginner Course (5/5 Stars)</h3>
+    <p>
+      "I highly recommend the A1 Beginner Course on HelloDeutsch! As someone who knew zero German,
+      the pace was perfect. Each module breaks down the basics—greetings, numbers, and simple present tense—into manageable chunks.
+      After finishing, I felt confident enough to manage basic daily interactions."
+    </p>
+    <span>— Sophie L., Marketing Professional</span>
+  </div>
+
+  <div class="review">
+    <h3>Grammar & Cases Deep Dive (3/5 Stars)</h3>
+    <p>
+      "I enrolled in the specific 'Grammar & Cases Deep Dive' course to solidify my B1 knowledge.
+      While the course provides a good overview, I found the explanations of the Dative and Accusative prepositions
+      to be somewhat dry and theoretical. It could benefit from more practical examples and scenario-based exercises."
+    </p>
+    <span>— Markus F., University Student</span>
+  </div>
+
+  <div class="review">
+    <h3>Practical Communication Course (4/5 Stars)</h3>
+    <p>
+      "This course was excellent for bridging the gap between textbook German and real-life conversations.
+      The best part was the video segments, where you watch realistic role-plays."
+    </p>
+    <span>— Elena V., Recent Immigrant</span>
+  </div>
+</section>
+
+<footer class="footer">
+    <h2 class="footer-title">Contact Us</h2>
+
+    <div class="footer-content">
+        
+        <div class="footer-left">
+            <p>Email:</p>
+            <p>info@hallodeutsch.com (For general questions)</p>
+            <p>support@hallodeutsch.com (For technical support)</p>
+
+            <br>
+
+            <p>Phone numbers:</p>
+            <p>+49 531 347 262</p>
+            <p>+7 653 474 628</p>
+
+            <br>
+
+            <p>Office address:</p>
+            <p>Schönhauser Allee 175, 10119 Berlin, Germany</p>
+        </div>
+
+        
+        <div class="footer-form">
+            <h4>Are you facing a problem?</h4>
+            <p>Write to us and we will definitely help!</p>
+
+            <input type="email" placeholder="Email">
+            <input type="text" placeholder="subject of the message">
+            <textarea placeholder="the text message"></textarea>
+
+            <button>send message</button>
+        </div>
+    </div>
+
+    <p class="footer-copy">Copyright ©2000–2024 Hallo Deutsch</p>
+</footer>
+
+</body>
+</html>

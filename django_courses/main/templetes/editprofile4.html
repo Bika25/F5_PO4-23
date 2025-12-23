@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment by Card</title>
+    <link rel="stylesheet" href="{% static 'main/editprofile4.css' %}">
+
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">
+    <img src="{% static 'main/images/logo.png' %}" alt="Logo" class="logo-img">
+    <span>HalloDensch</span>
+</div>
+   <nav>
+    <a href="{% url 'home' %}">Homepage</a>
+    <a href="{% url 'catalog' %}">Catalog</a>
+    <a href="{% url 'about' %}">About Us</a>
+    <a href="{% url 'course' %}">Course Page</a>
+    <a href="#">Contact</a>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'profile' %}" class="login-btn">Profile</a>
+    {% else %}
+        <a href="{% url 'login' %}" class="login-btn">Log in</a>
+    {% endif %}
+</nav>
+</header>
+
+<main class="container">
+
+    <section class="profile">
+        <div class="avatar"></div>
+        <h2>Name</h2>
+        <p>@user32498</p>
+        <button class="btn-secondary">Edit profile</button>
+    </section>
+
+    <section class="payment-card">
+        <h3>Payment by Card</h3>
+
+        <div class="payment-content">
+
+
+            <div class="illustration">
+               
+                <img src="{% static 'main/images/payment.png' %}" alt="Payment illustration">
+
+            </div>
+
+
+            <form class="payment-form">
+                <input type="email" placeholder="Email for receipt">
+                <input type="text" placeholder="Card Number">
+
+                <div class="row">
+                    <input type="text" placeholder="MM/YY">
+                    <input type="text" placeholder="CVV">
+                </div>
+
+                <button class="btn-primary">Pay</button>
+            </form>
+
+        </div>
+    </section>
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - HalloDeutsch</title>
+    <link rel="stylesheet" href="{% static 'main/aboutus.css' %}">
+
+</head>
+<body>
+
+    <header class="navbar">
+    <div class="logo">
+    <img src="{% static 'main/images/logo.png' %}" alt="Logo" class="logo-img">
+    <span>HalloDensch</span>
+</div>
+   <nav>
+    <a href="{% url 'home' %}">Homepage</a>
+    <a href="{% url 'catalog' %}">Catalog</a>
+    <a href="{% url 'about' %}">About Us</a>
+    <a href="{% url 'course' %}">Course Page</a>
+    <a href="#">Contact</a>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'profile' %}" class="login-btn">Profile</a>
+    {% else %}
+        <a href="{% url 'login' %}" class="login-btn">Log in</a>
+    {% endif %}
+</nav>
+</header>
+
+    <main class="container">
+        <h1 class="page-title">About Us</h1>
+
+        <section class="about-section">
+            <div class="about-logo-card">
+                <div class="flag-box">
+                    <div class="flag-black"></div>
+                    <div class="flag-red"></div>
+                    <div class="flag-gold"></div>
+                </div>
+                <h2>HalloDeutsch</h2>
+                <p>• HALLODESGH •</p>
+            </div>
+            <div class="about-content">
+                <h3>🇩🇪 HalloDeutsch: An Online Platform for Learning German</h3>
+                <p>HelloDeutsch is an online learning platform specifically designed to help users learn the German language. It aims to provide an accessible and engaging way for beginners and others to acquire German language skills, often focusing on practical usage and foundational knowledge.</p>
+            </div>
+        </section>
+
+        <h1 class="page-title">Our Instagram</h1>
+        <section class="insta-container">
+            <div class="phone-mockup">
+                <div class="insta-header">
+                    <span>9:41</span>
+                    <div class="header-right">📶 🔋</div>
+                </div>
+                <div class="insta-user-bar">
+                    <span>hello_deutsch</span>
+                    <span>☰</span>
+                </div>
+                <div class="insta-stats">
+                    <div class="insta-avatar"></div>
+                    <div class="stat-item"><strong>112</strong><br>Posts</div>
+                    <div class="stat-item"><strong id="followerCount">27,945</strong><br>Followers</div>
+                    <div class="stat-item"><strong>1</strong><br>Following</div>
+                </div>
+                <div class="insta-bio">
+                    <strong>Hello Deutsch | ATYRAU 📍</strong><br>
+                    Improve your Germany with Us!
+                </div>
+                <div class="insta-btns">
+                    <button class="btn-blue" id="followBtn">Follow</button>
+                    <button class="btn-grey" onclick="alert('Переход в Direct...')">Message</button>
+                </div>
+                <div class="insta-highlights">
+                    <div class="h-item"><div class="h-circle">+</div><span>New</span></div>
+                    <div class="h-item"><div class="h-circle c1"></div><span>About us</span></div>
+                    <div class="h-item"><div class="h-circle c2"></div><span>Our student</span></div>
+                    <div class="h-item"><div class="h-circle c3"></div><span>Location</span></div>
+                </div>
+                <div class="insta-grid">
+                    <div class="grid-box"></div><div class="grid-box"></div><div class="grid-box"></div>
+                    <div class="grid-box"></div><div class="grid-box"></div><div class="grid-box"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-flex">
+                <div class="footer-left">
+                    <h2 class="footer-title">Contact Us</h2>
+                    <div class="info-group">
+                        <span class="info-label">email:</span>
+                        info@hallodeutsch.com (For general questions)<br>
+                        support@hallodeutsch.com (For technical support)
+                    </div>
+                    <div class="footer-bottom-row">
+                        <div class="info-group">
+                            <span class="info-label">Phone number:</span>
+                            +49 534 347 1232<br>
+                            +7 658 374 6239
+                        </div>
+                        <div class="info-group">
+                            <span class="info-label">Office address:</span>
+                            Schönhauser Allee 175, 10119 Berlin, Germany
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <p>Are you facing a problem?<br>Write to us and we will definitely help!</p>
+                    <form class="contact-form" id="feedbackForm">
+                        <input type="email" placeholder="Email" required>
+                        <input type="text" placeholder="Subject of the message" required>
+                        <textarea placeholder="The text message" required></textarea>
+                        <button type="submit" class="send-btn">send message</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copy">Copyright ©2020-2024 Hallo Deutsch</div>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Работа кнопки Follow в Instagram
+        const followBtn = document.getElementById('followBtn');
+        let isFollowed = false;
+
+        followBtn.addEventListener('click', () => {
+            isFollowed = !isFollowed;
+            if (isFollowed) {
+                followBtn.innerText = 'Following';
+                followBtn.classList.add('followed');
+            } else {
+                followBtn.innerText = 'Follow';
+                followBtn.classList.remove('followed');
+            }
+        });
+
+        // 2. Работа формы обратной связи
+        const feedbackForm = document.getElementById('feedbackForm');
+        feedbackForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Чтобы страница не перезагружалась
+            alert('Спасибо! Ваше сообщение успешно отправлено. Мы свяжемся с вами в ближайшее время.');
+            feedbackForm.reset(); // Очистка полей
+        });
+    </script>
+</body>
+</html>
