@@ -1,0 +1,81 @@
+{% extends 'girls/base.html' %}
+{% load static %}
+
+{% block title %}My Courses | HalloDeutsch{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'girls/css/profile3.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Background circles -->
+<div class="circle top-left"></div>
+<div class="circle bottom-right"></div>
+
+<main class="container">
+
+    <!-- Profile section -->
+    <section class="profile">
+        <div class="avatar">
+            {% if user.profile.avatar %}
+                <img src="{{ user.profile.avatar.url }}" alt="Avatar" style="width:100%; height:100%; border-radius:50%;">
+            {% else %}
+                <span>{{ user.first_name|default:user.username|slice:":1"|upper }}</span>
+            {% endif %}
+        </div>
+        <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+        <span class="username">@{{ user.username }}</span>
+        <a href="{% url 'girls:editprofile' %}">
+            <button class="edit-btn">
+                <a href="{% url 'girls:editprofile' %}" style="color: inherit; text-decoration: none;">Edit profile</a>
+            </button>
+                    </a>
+    </section>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <span class="active">My Courses</span>
+        <span>Next Lesson</span>
+    </div>
+
+    <!-- Courses loop -->
+    {% if user_courses %}
+        {% for uc in user_courses %}
+        <div class="course-card">
+            <div class="course-info">
+                <h3>COURSE — {{ uc.course.title }}</h3>
+                <p class="subtitle">{{ uc.course.short_description|default:"No description yet" }}</p>
+
+                <ul>
+                    <li>Duration: {{ uc.course.duration|default:"N/A" }}</li>
+                    <li>Level: {{ uc.course.level|title }}</li>
+                    <li>Price: {{ uc.course.price }} ₸</li>
+                    <li>Status: {{ uc.enrollment.status|title }}</li>
+                </ul>
+            </div>
+
+            {% if uc.next_lesson %}
+                <a href="{% url 'girls:lesson_dynamic' uc.course.id uc.next_lesson.order %}" class="start-btn">
+                    {% if uc.enrollment.status == 'completed' %}Review{% else %}Start{% endif %}
+                </a>
+            {% else %}
+                <span class="start-btn" style="opacity:0.6; cursor:not-allowed;">No lessons</span>
+            {% endif %}
+        </div>
+        {% endfor %}
+    {% else %}
+        <p style="text-align:center; margin-top:40px;">
+            You are not enrolled in any courses yet. <a href="{% url 'girls:catalog' %}">Browse courses</a>
+        </p>
+    {% endif %}
+<!-- Payment section -->
+<div class="payment">
+    <button onclick="location.href='{% url 'girls:payment' %}'">Payment</button>
+    <p>Manage your payments and invoices here.</p>
+</div>
+
+
+</main>
+
+{% endblock %}

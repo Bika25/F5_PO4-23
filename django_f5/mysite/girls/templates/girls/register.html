@@ -1,0 +1,65 @@
+{% extends 'girls/base.html' %}
+{% load static %}
+
+{% block title %}Register | HalloDeutsch{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'girls/css/register.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Background shapes -->
+<div class="circle top-left"></div>
+<div class="circle bottom-right"></div>
+
+<main class="container">
+    <div class="register-box">
+        <h1>Register</h1>
+        <p>
+            Enter your details to register to your Course account.<br>
+            In case you cannot register, please contact our HelloDensch Center
+        </p>
+
+        <form class="form-grid" method="POST" action="{% url 'girls:register' %}">
+            {% csrf_token %}
+            <input type="text" name="first_name" placeholder="First Name" required>
+            <input type="text" name="surname" placeholder="Surname" required>
+
+            <input type="date" name="dob" placeholder="Date of Birth" required>
+            <select name="nationality" required>
+                <option selected disabled>Nationality/Region</option>
+                <option value="Azerbaijan">Azerbaijan</option>
+                <option value="Turkey">Turkey</option>
+                <option value="Germany">Germany</option>
+            </select>
+
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="tel" name="phone" placeholder="Mobile Phone" required>
+
+            <div class="password-field">
+                <input type="password" name="password" placeholder="Password" required>
+                <span>👁</span>
+            </div>
+
+            <div class="password-field">
+                <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+                <span>👁</span>
+            </div>
+
+            <label class="checkbox">
+                <input type="checkbox" name="terms" required>
+                I accept the Privacy Notice and Nomad Club Programme Terms and Conditions.
+            </label>
+
+            <button type="submit" class="btn-register">Register</button>
+        </form>
+
+        <div class="login-link">
+            Already have an Account?
+            <a href="{% url 'girls:login' %}">Log In</a>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

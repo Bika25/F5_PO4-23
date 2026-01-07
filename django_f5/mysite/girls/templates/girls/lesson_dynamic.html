@@ -1,0 +1,21 @@
+{% extends 'girls/base.html' %}
+{% load static %}
+
+{% block title %}{{ lesson.title }} | {{ course.title }}{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'girls/css/lesson.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="container">
+    <h2>{{ course.title }} — Lesson {{ lesson.order }}: {{ lesson.title }}</h2>
+    <div class="lesson-content">
+        <p>{{ lesson.content }}</p>
+        {% if lesson.video_url %}
+            <iframe width="560" height="315" src="{{ lesson.video_url }}" frameborder="0" allowfullscreen></iframe>
+        {% endif %}
+    </div>
+    <a href="{% url 'girls:profile' %}" class="back-btn">Back to My Courses</a>
+</main>
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends 'girls/base.html' %}
+{% load static %}
+
+{% block title %}About Us - HalloDeutsch{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'girls/css/aboutus.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<main class="container">
+    <h1 class="page-title">About Us</h1>
+
+    <section class="about-section">
+        <div class="about-logo-card">
+            <div class="flag-box">
+                <div class="flag-black"></div>
+                <div class="flag-red"></div>
+                <div class="flag-gold"></div>
+            </div>
+            <h2>HalloDeutsch</h2>
+            <p>• HALLODEUTSCH •</p>
+        </div>
+
+        <div class="about-content">
+            <h3>
+                <img src="{% static 'girls/img/germany.png' %}" alt="Germany" class="flag-img">
+                HalloDeutsch:</h3> An Online Platform for Learning German
+                HalloDeutsch is an online learning platform designed to help users
+                learn the German language with practical and engaging methods.
+        </div>
+    </section>
+
+    <h1 class="page-title">Our Instagram</h1>
+
+    <section class="insta-container">
+        <div class="phone-mockup">
+
+            <div class="insta-header">
+                <span>9:41</span>
+                <div class="header-right">📶 🔋</div>
+            </div>
+
+            <div class="insta-user-bar">
+                <span>hello_deutsch</span>
+                <span>☰</span>
+            </div>
+
+            <div class="insta-stats">
+                <div class="insta-avatar"></div>
+                <div class="stat-item"><strong>112</strong><br>Posts</div>
+                <div class="stat-item">
+                    <strong id="followerCount">27,945</strong><br>Followers
+                </div>
+                <div class="stat-item"><strong>1</strong><br>Following</div>
+            </div>
+
+            <div class="insta-bio">
+                <strong>Hello Deutsch | ATYRAU 📍</strong><br>
+                Improve your German with us!
+            </div>
+
+            <div class="insta-btns">
+                <button class="btn-blue" id="followBtn">Follow</button>
+                <button class="btn-grey" onclick="alert('Opening Direct...')">Message</button>
+            </div>
+
+            <div class="insta-highlights">
+                <div class="h-item"><div class="h-circle">+</div><span>New</span></div>
+                <div class="h-item"><div class="h-circle c1"></div><span>About us</span></div>
+                <div class="h-item"><div class="h-circle c2"></div><span>Our students</span></div>
+                <div class="h-item"><div class="h-circle c3"></div><span>Location</span></div>
+            </div>
+
+            <div class="insta-grid">
+                <div class="grid-box"></div><div class="grid-box"></div><div class="grid-box"></div>
+                <div class="grid-box"></div><div class="grid-box"></div><div class="grid-box"></div>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<script>
+    const followBtn = document.getElementById('followBtn');
+    let isFollowed = false;
+
+    followBtn.addEventListener('click', () => {
+        isFollowed = !isFollowed;
+        followBtn.textContent = isFollowed ? 'Following' : 'Follow';
+        followBtn.classList.toggle('followed', isFollowed);
+    });
+
+    document.getElementById('feedbackForm').addEventListener('submit', e => {
+        e.preventDefault();
+        alert('Message sent successfully!');
+        e.target.reset();
+    });
+</script>
+
+{% endblock %}

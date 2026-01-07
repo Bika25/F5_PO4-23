@@ -1,0 +1,54 @@
+{% extends 'girls/base.html' %}
+{% load static %}
+
+{% block title %}{{ course.title }} - HalloDeutsch{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'girls/css/coursepage.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="page-title">
+  <h1>{{ course.title }}</h1>
+  <span class="filter">Filter ⚙</span>
+</section>
+
+<section class="card">
+  <h2>Course Overview</h2>
+  <p>{{ course.description }}</p>
+
+  <h3>What you will learn</h3>
+  <ul>
+    <li>Basic concepts (adapted to {{ course.level }})</li>
+    <li>Vocabulary & grammar</li>
+    <li>Practical exercises</li>
+    <li>Speaking & writing</li>
+    <li>Listening comprehension</li>
+  </ul>
+
+  <h3>Who is this course for?</h3>
+  <ul>
+    <li>Students at {{ course.level }} level</li>
+    <li>Anyone wanting to improve German</li>
+    <li>Self-study or classroom learners</li>
+  </ul>
+</section>
+
+<section class="card center">
+  <h2>Course Details</h2>
+  <p><strong>Duration:</strong> {{ course.duration }}</p>
+  <p><strong>Price:</strong> {{ course.price }} ₸</p>
+
+  {% if enrollment %}
+      <button class="join-btn enrolled" disabled>
+          You are enrolled ✅
+      </button>
+  {% else %}
+      <a href="{% url 'girls:enroll_course' course.id %}" class="join-btn">
+          Join Now
+      </a>
+  {% endif %}
+</section>
+
+{% endblock %}

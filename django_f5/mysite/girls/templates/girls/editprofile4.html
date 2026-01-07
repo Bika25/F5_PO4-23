@@ -1,0 +1,52 @@
+{% extends 'girls/base.html' %}
+{% load static %}
+
+{% block title %}Edit Profile - HalloDeutsch{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'girls/css/editprofile4.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<main class="container">
+
+    <!-- PROFILE HEADER -->
+    <section class="profile">
+        <div class="avatar"></div>
+        <h2>{{ request.user.first_name }} {{ request.user.last_name }}</h2>
+        <p>@{{ request.user.username }}</p>
+    </section>
+
+    <!-- EDIT PROFILE FORM -->
+    <section class="edit-profile-card">
+        <h3>Edit Profile</h3>
+    
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    
+        <form method="POST" class="edit-profile-form">
+            {% csrf_token %}
+            <input type="text" name="first_name" placeholder="First Name" value="{{ user.first_name }}" required>
+            <input type="text" name="last_name" placeholder="Surname" value="{{ user.last_name }}" required>
+            <input type="email" name="email" placeholder="Email" value="{{ user.email }}" required>
+    
+            <hr>
+    
+            <h4>Change Password (optional)</h4>
+            <input type="password" name="password" placeholder="New Password">
+            <input type="password" name="confirm_password" placeholder="Confirm New Password">
+    
+            <button type="submit" class="btn-primary">Update Profile</button>
+        </form>
+    </section>
+    
+
+</main>
+
+{% endblock %}

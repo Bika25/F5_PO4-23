@@ -1,0 +1,49 @@
+{% extends 'girls/base.html' %}
+{% load static %}
+
+{% block title %}Payment by Card - HalloDeutsch{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'girls/css/payment.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<main class="container">
+
+    <section class="profile">
+        <div class="avatar"></div>
+        <h2>{{ request.user.username }}</h2>
+        <p>@{{ request.user.username }}</p>
+        <button class="btn-secondary">Edit profile</button>
+    </section>
+
+    <section class="payment-card">
+        <h3>Payment by Card</h3>
+
+        <div class="payment-content">
+
+            <div class="illustration">
+                <img src="{% static 'girls/img/payment.png' %}" alt="Payment illustration">
+            </div>
+
+            <form class="payment-form" method="post">
+                {% csrf_token %}
+
+                <input type="email" placeholder="Email for receipt" required>
+                <input type="text" placeholder="Card Number" required>
+
+                <div class="row">
+                    <input type="text" placeholder="MM/YY" required>
+                    <input type="text" placeholder="CVV" required>
+                </div>
+
+                <button class="btn-primary" type="submit">Pay</button>
+            </form>
+
+        </div>
+    </section>
+
+</main>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'girls/base.html' %}
+{% load static %}
+
+{% block title %}All Online Courses - HalloDeutsch{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'girls/css/catalog.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<main class="container">
+
+    <!-- Header -->
+    <section class="catalog-header">
+        <h1>All Online Courses</h1>
+        <p class="breadcrumb">Homepage / Catalog</p>
+        <input type="text" class="search-bar" placeholder="What are you looking for?" disabled>
+        {# You can implement search functionality later #}
+    </section>
+
+    <!-- Filters Form -->
+    <form method="get">
+        <section class="filters">
+            
+            <!-- Level Filter -->
+            <div class="filter-group">
+                <h3>Level</h3>
+                {% for key, label in courses.model.LEVEL_CHOICES %}
+                    <label>
+                        <input type="checkbox" name="level" value="{{ key }}"
+                        {% if key in selected_levels %}checked{% endif %}>
+                        {{ label }}
+                    </label>
+                {% endfor %}
+            </div>
+
+            <!-- Duration Filter -->
+            <div class="filter-group">
+                <h3>Duration</h3>
+                <label><input type="checkbox" name="duration" value="1-4"
+                    {% if "1-4" in selected_durations %}checked{% endif %}> 1–4 weeks</label>
+                <label><input type="checkbox" name="duration" value="5-8"
+                    {% if "5-8" in selected_durations %}checked{% endif %}> 5–8 weeks</label>
+                <label><input type="checkbox" name="duration" value="9-12"
+                    {% if "9-12" in selected_durations %}checked{% endif %}> 9–12 weeks</label>
+            </div>
+
+            <!-- Price Filter -->
+            <div class="filter-group">
+                <h3>Price</h3>
+                <label><input type="checkbox" name="price" value="10000-20000"
+                    {% if "10000-20000" in selected_prices %}checked{% endif %}> 10,000–20,000 ₸</label>
+                <label><input type="checkbox" name="price" value="20001-40000"
+                    {% if "20001-40000" in selected_prices %}checked{% endif %}> 20,001–40,000 ₸</label>
+                <label><input type="checkbox" name="price" value="40001-60000"
+                    {% if "40001-60000" in selected_prices %}checked{% endif %}> 40,001–60,000 ₸</label>
+            </div>
+
+            <button type="submit" class="apply-filters">Apply Filters</button>
+        </section>
+    </form>
+
+    <!-- Courses Grid -->
+    <section class="course-grid">
+        {% for course in courses %}
+        <div class="course-card">
+            <h2>{{ course.title }}</h2>
+            <p>{{ course.short_description }}</p>
+            <p><strong>Duration:</strong> {{ course.duration }}</p>
+            <div class="price">From {{ course.price }} ₸</div>
+            <a href="{% url 'girls:coursepage' course.id %}" class="learn-more">Learn More</a>
+        </div>
+        {% empty %}
+        <p>No courses available at the moment.</p>
+        {% endfor %}
+    </section>
+
+</main>
+
+{% endblock %}

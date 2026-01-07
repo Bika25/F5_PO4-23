@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- GLOBAL CSS -->
+    <link rel="stylesheet" href="{% static 'girls/css/homepage.css' %}">
+  <meta charset="UTF-8">
+  <title>{% block title %}HalloDeutsch{% endblock %}</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+
+  {% block css %}{% endblock %}
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="{% static 'girls/img/logo.png' %}" alt="HalloDeutsch" class="logo-img">
+      <span>HalloDeutsch</span>
+    </div>
+  
+    <nav>
+      <a href="{% url 'girls:homepage' %}">HOMEPAGE</a>
+      <a href="{% url 'girls:catalog' %}">CATALOG</a>
+      <a href="{% url 'girls:aboutus' %}">ABOUT US</a>
+      <a href="{% url 'girls:catalog'%}">COURSES</a>
+      <a href="{% url 'girls:contact'%}">CONTACT</a>
+    </nav>
+    <div class="nav-auth">
+      {% if user.is_authenticated %}
+        <a href="{% url 'girls:profile' %}" class="login-btn">Profile</a>
+        <a href="{% url 'girls:logout' %}" class="login-btn outline">Logout</a>
+      {% else %}
+        <a href="{% url 'girls:login' %}" class="login-btn">Log in</a>
+      {% endif %}
+    </div>
+  </header>
+  
+
+{% block content %}{% endblock %}
+
+<footer class="hd-ft-wrapper">
+  <h2 class="hd-ft-title">Contact Us</h2>
+
+  <div class="hd-ft-container">
+    <div class="hd-ft-info">
+      <div class="hd-ft-info-block">
+        <h4>email:</h4>
+        <p>info@.hallodensch.com (For general questions)</p>
+        <p>support@hallodensch.com (for technical support)</p>
+      </div>
+
+      <div class="hd-ft-grid-row">
+        <div class="hd-ft-info-block">
+          <h4>Phone number:</h4>
+          <p>+49 534 347 1262</p>
+          <p>+7 658 374 6239</p>
+        </div>
+
+        <div class="hd-ft-info-block">
+          <h4>Office address:</h4>
+          <p>Schönhauser Allee 175, 10119 Berlin, Germany</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hd-ft-form-card">
+      <h3>Are you facing a problem?</h3>
+      <p>Write to us and we will definitely help!</p>
+      
+      <form action="#">
+        <input type="email" class="hd-ft-input" placeholder="Email" required>
+        <input type="text" class="hd-ft-input" placeholder="subject of the message" required>
+        <input type="text" class="hd-ft-input" placeholder="the text message" required>
+        <button type="submit" class="hd-ft-submit">send message</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="hd-ft-copyright">
+    Copyright ©2000-2024 Hallo Deutsch
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+{% extends 'girls/base.html' %}
+{% load static %}
+
+{% block title %}HalloDeutsch{% endblock %}
+
+{% block css %}
+<link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'girls/css/homepage.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+  <div class="container hero__inner">
+
+    <div class="hero__content">
+      <span class="badge">German · From scratch</span>
+      <h1>Master German for Study, Work, and Life</h1>
+      <p>
+        Join our comprehensive German courses designed for all levels.
+        Learn at your own pace and earn certificates along the way.
+      </p>
+      <a href="{% url 'girls:register' %}" class="hero-btn">Start Now</a>
+    </div>
+
+    <div class="hero__image">
+      <img src="{% static 'girls/img/image.png' %}" alt="Germany">
+    </div>
+
+  </div>
+</section>
+
+<div class="hd-section-wrapper">
+
+  <div class="hd-features-container">
+    <div class="hd-feature-item">
+      <div class="hd-icon-box">
+        <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></svg>
+      </div>
+      <div class="hd-feature-text">The course program is updated every year</div>
+    </div>
+
+    <div class="hd-feature-item">
+      <div class="hd-icon-box">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"></path></svg>
+      </div>
+      <div class="hd-feature-text">We can also help you take the TestDaF if you plan to study, work or live in Germany.</div>
+    </div>
+
+    <div class="hd-feature-item">
+      <div class="hd-icon-box">
+        <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"></path></svg>
+      </div>
+      <div class="hd-feature-text">We have experienced teachers who have already visited Germany.</div>
+    </div>
+
+    <div class="hd-feature-item">
+      <div class="hd-icon-box">
+        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path></svg>
+      </div>
+      <div class="hd-feature-text">The schedule is convenient for you. We select a teacher for you depending on your convenient time.</div>
+    </div>
+  </div>
+
+  <div class="hd-hero-area">
+    <div class="hd-blur-effect"></div> <div class="hd-pill-label">ABOUT OUR EDUCATION INSTITUTION</div>
+    <h2 class="hd-main-heading">HalloDeutsch is an educational platform for learning German.</h2>
+  </div>
+
+  <p class="hd-description">
+    We offer courses for all levels: from beginners to preparation for international exams.<br>
+    Modern techniques, experienced teachers and a flexible learning format will help you achieve your goals quickly.
+  </p>
+
+  <a href="{% url 'girls:register' %}" class="hd-cta-btn">Start learning German with HalloDeutsch today!</a>
+
+</div>
+
+<section class="courses">
+  <div class="container">
+    <div class="courses__grid">
+      {% for course in courses %}
+        <div class="course-card">
+          <h3>{{ course.title }}</h3>
+          <p>{{ course.description }}<br>Duration: {{ course.duration }}</p>
+          <span class="price">From {{ course.price }} ₸</span>
+          <a href="{% url 'girls:coursepage' course.id %}">Learn More</a>
+        </div>
+      {% empty %}
+        <p>No courses available at the moment.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+<div class="hd-fb-wrapper">
+
+  <div class="hd-fb-header">
+    <div class="hd-fb-title-pill">FEEDBACKS</div>
+  </div>
+
+  <div class="hd-fb-scroll-container">
+    
+    <div class="hd-fb-comment">
+      <div class="hd-fb-user-row">
+        <div class="hd-fb-avatar"></div> <span class="hd-fb-username">user4254</span>
+      </div>
+      <p class="hd-fb-text">
+        This course helped me a lot! Thanks to this course and quick, easy learning.
+      </p>
+      <div class="hd-fb-actions">
+        <button class="hd-fb-action-btn">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+          </svg>
+        </button>
+        <button class="hd-fb-action-btn">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="hd-fb-comment">
+      <div class="hd-fb-user-row">
+        <div class="hd-fb-avatar"></div>
+        <span class="hd-fb-username">aizat basigarieva</span>
+      </div>
+      <p class="hd-fb-text">
+        I tried diffrent courses and tried to tech myself, but everything was in vain until i found this course. Thank you a lot.
+      </p>
+      <div class="hd-fb-actions">
+        <button class="hd-fb-action-btn">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+          </svg>
+        </button>
+        <button class="hd-fb-action-btn">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="hd-fb-input-area">
+    <div class="hd-fb-input-wrapper">
+      <input type="text" class="hd-fb-input" placeholder="Leave comment...">
+      <button class="hd-fb-send-btn">Send</button>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
